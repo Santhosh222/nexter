@@ -1,4 +1,54 @@
 .footer {
     background-color: $color-secondary;
     grid-column: full-start / full-end;
+    padding: 8rem;
+}
+
+.nav {
+    list-style: none;
+
+    // Grid solution - Items will not be centered horizontally when moved to second, third,... rows.
+    // Advantage - can define min width to 15rem but items can grow in SAME WIDTH to 1fr.
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 2rem;
+    align-items: center;
+
+    // Flexbox solution - Items will not be centered horizontally using justify-content - space-around or space-evenly.
+    // Disadvantage - Width should be set to fixed and cannot grow later.
+    // display: flex;
+    // gap: 2rem;
+    // flex-wrap: wrap;
+    // align-items: center;
+    // justify-content: space-around;
+
+    // &__item {
+    //     flex: 0 0 15rem;
+    // }
+
+    &__link:link,
+    &__link:visited {
+        font-size: 1.4rem;
+        color: #fff;
+        text-decoration: none;
+        font-family: $font-display;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 1.5rem;
+        display: block;
+        transition: all .2s;
+
+        &:hover,
+        &:active {
+            background-color: rgba($color: #fff, $alpha: .05);
+        }
+    }
+}
+
+.copyright {
+    font-size: 1.4rem;
+    color: $color-grey-light-2;
+    margin: 6rem auto 0;
+    text-align: center;
+    width: 70%;
 }
